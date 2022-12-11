@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1053103542429",
+    "project_id": "voting-application-cd6fc",
+    "firebase_url": "https://voting-application-cd6fc-default-rtdb.europe-west1.firebasedatabase.app/",
+    "storage_bucket": "voting-application-cd6fc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1053103542429:android:77852755223cb78defc474",
+        "android_client_info": {
+          "package_name": "com.example.voting_application"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1053103542429-4sfe3ijqrbn3ioou982h4vhv0bltear2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCEOO3lzX0HPOEbKy5-SKJFEJeuHpRq9XE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1053103542429-4sfe3ijqrbn3ioou982h4vhv0bltear2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
