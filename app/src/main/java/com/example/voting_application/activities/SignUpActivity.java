@@ -32,13 +32,6 @@ public class SignUpActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
-//        findViewById(R.id.linearLayout1).setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                onBackPressed();
-//            }
-//        });
-
         userName = findViewById(R.id.user_name);
         userEmail = findViewById(R.id.user_email);
         userPassword = findViewById(R.id.user_password);
@@ -55,7 +48,7 @@ public class SignUpActivity extends AppCompatActivity {
                 String password = userPassword.getText().toString().trim();
                 String passwordConfirm = userConfirmPassword.getText().toString().trim();
 
-                if (!TextUtils.isEmpty(name) && !TextUtils.isEmpty(email) && Patterns.EMAIL_ADDRESS.matcher(email).matches() && !TextUtils.isEmpty(password) && !TextUtils.isEmpty(passwordConfirm)) {
+                if (!TextUtils.isEmpty(name) && !TextUtils.isEmpty(email) && Patterns.EMAIL_ADDRESS.matcher(email).matches() && !TextUtils.isEmpty(password) && !TextUtils.isEmpty(passwordConfirm) && password.equals(passwordConfirm)) {
 
                     createUser(email, password);
 

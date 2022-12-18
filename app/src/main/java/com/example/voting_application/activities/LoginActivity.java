@@ -21,7 +21,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private Button button, login_btn;
+    private Button button, login_button, vote;
     private EditText userPassword, userEmail;
     private FirebaseAuth mAuth;
 
@@ -30,10 +30,20 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        vote = (Button) findViewById(R.id.login_btn);
+
+        vote.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openVote();
+            }
+        });
+
         button = (Button) findViewById(R.id.signup_btn);
-        login_btn = (Button) findViewById(R.id.login_btn);
+        login_button = (Button) findViewById(R.id.login_btn);
         userEmail = findViewById(R.id.user_email);
         userPassword = findViewById(R.id.user_password);
+
         mAuth = FirebaseAuth.getInstance();
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,7 +52,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        login_btn.setOnClickListener(new View.OnClickListener() {
+        login_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String email = userEmail.getText().toString().trim();
@@ -59,6 +69,11 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
+    private void openVote() {
+        Intent intent = new Intent(LoginActivity.this, VoteActivity.class);
+        startActivity(intent);
+    }
+
     private void loginUser(String email, String password) {
         mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
@@ -67,7 +82,8 @@ public class LoginActivity extends AppCompatActivity {
                     FirebaseUser firebaseUser = mAuth.getCurrentUser();
                     if (firebaseUser.getDisplayName().equals("user")) {
                         //GOTO USER HOMEPAGE INTENT
-                        Toast.makeText(LoginActivity.this, "User signed in as normal user", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(LoginActivity.this, "User signed in as normal user", Toast.LENGTH_SHORT).show();
+                        openVote();
 
                     } else {
                         //GOTO ADMINISTRATOR HOMEPAGE INTENT
